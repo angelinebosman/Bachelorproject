@@ -1,4 +1,11 @@
-%clear all;
+clear all;
+% Menu
+   title = 'Which version of the model do you want to run? (1 for yes 0 for no)';
+   prompt = { 'Differentiating shear stress', 'moving boundary problem'};
+   defaultanswer={'0','0'};
+   params=inputdlg(prompt,title, [1 110], defaultanswer);
+   shear            = str2num(char(params(1)));
+   moving_boundary  = str2num(char(params(2)));
 
 r1 = 1; %straal buitencirkel
 r2 = 0.85; %straal binnencirkel 
@@ -7,10 +14,10 @@ l = 2*r1/n; %stapgrootte
 dt = 0.5; %tijdstapgrootte
 
 %do you want to have differentiating shear stress:
-shear = 0; %1 for yes, 0 for no
+%shear = 1; %1 for yes, 0 for no
 
 %do you want to solve the moving boundary problem:
-moving_boundary = 1; %1 for yes, 0 for no
+%moving_boundary = 0; %1 for yes, 0 for no
 
 
 %generate the shear stress over the domain
@@ -70,7 +77,7 @@ figure;hold on;title('Macrofagen');imagesc(M);colormap('gray') ;axis off;colorba
 figure;hold on;title('Chemoattractant');imagesc(C); colormap('gray');axis off;colorbar;
 figure;hold on;title('LDL');imagesc(L);colormap('gray');axis off;colorbar;
 figure;hold on;title('Foam cells');imagesc(F);colormap('gray');axis off;colorbar;
-figure;hold on;title('Nieuwe binnenrand');imagesc(Levelset);colormap('gray');axis off;colorbar;
+%figure;hold on;title('Nieuwe binnenrand');imagesc(Levelset);colormap('gray');axis off;colorbar;
 
 
 
