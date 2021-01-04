@@ -1,9 +1,9 @@
 clear all;
 % Menu
-   title = 'Which version of the model do you want to run? (1 for yes 0 for no)';
+   Title = 'Which version of the model do you want to run? (1 for yes 0 for no)';
    prompt = { 'Differentiating shear stress', 'moving boundary problem'};
    defaultanswer={'0','0'};
-   params=inputdlg(prompt,title, [1 110], defaultanswer);
+   params=inputdlg(prompt,Title, [1 110], defaultanswer);
    shear            = str2num(char(params(1)));
    moving_boundary  = str2num(char(params(2)));
 
